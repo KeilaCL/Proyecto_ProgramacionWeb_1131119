@@ -11,19 +11,37 @@ namespace Proyecto_ProgramacionWeb_1131119.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly dbHospital _dbhospital;
+
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(dbHospital dbhospital)
         {
-            _logger = logger;
+            _dbhospital = dbhospital;
+        }
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        [HttpGet]
+        public IEnumerable<Usuario> Get()
+        {
+            return _dbhospital.Usuarios.ToList();
+        }
+        public IActionResult Index()
+        {
+            var usuarios = _dbhospital.Usuarios.ToList();
+            return View(usuarios);
+            //return View();
         }
 
-        public IActionResult Index()
+        public IActionResult Privacy()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Registro()
         {
             return View();
         }
