@@ -31,9 +31,9 @@ namespace Proyecto_ProgramacionWeb_1131119.Controllers
         }
         public IActionResult Index()
         {
-            var usuarios = _dbhospital.Usuarios.ToList();
-            return View(usuarios);
-            //return View();
+            //var usuarios = _dbhospital.Usuarios.ToList();
+            //return View(usuarios);
+            return View();
         }
 
         public IActionResult Privacy()
