@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Proyecto_ProgramacionWeb_1131119.Models;
 using System;
@@ -24,16 +25,54 @@ namespace Proyecto_ProgramacionWeb_1131119.Controllers
         //    _logger = logger;
         //}
 
-        [HttpGet]
-        public IEnumerable<Usuario> Get()
-        {
-            return _dbhospital.Usuarios.ToList();
-        }
+        //[HttpGet]
+        //public IEnumerable<Persona> Get()
+        //{
+        //    return _dbhospital.Persona.ToList();
+        //}
+
+        //public IActionResult Index()
+        //{
+        //    //var query = from cliente in _dbhospital.Persona
+        //    //            join pedido in _dbhospital.Paciente on cliente.Id equals pedido.ClienteId
+        //    //            select new { Cliente = cliente, Pedido = pedido };
+
+        //    //var usuarios = _dbhospital.Persona.ToList();
+        //    var usuarios = _dbhospital.Personal.ToList();
+        //    //return View(usuarios);
+        //    return View();
+        //}
+
         public IActionResult Index()
         {
-            //var usuarios = _dbhospital.Usuarios.ToList();
-            //return View(usuarios);
-            return View();
+            var query = from persona in _dbhospital.Persona
+                        join personal in _dbhospital.Personal on persona.IdPersona equals personal.IdPersona
+                        select new {
+                            persona.IdPersona,
+                            persona.DPI,
+                            persona.Nombre,
+                            persona.Apellido,
+                            persona.FechaNacimiento,
+                            persona.Telefono,
+                            persona.Correo,
+                            persona.Direccion,
+                            persona.Sexo,
+                            personal.Salario,
+                            personal.Fecha_Ingreso
+                        };
+
+            //var PersonaConPersonal = query.GroupBy(q => q.Persona)
+            //                              .Select(g => new PersonaPersonal
+            //                              {
+            //                                  persona = g.Key,
+            //                                  personal = g.Select(q => q.Personal)
+            //                              })
+            //                              .ToList();
+
+            var results = query.ToList();
+
+            //var usuarios = _dbhospital.Usuario.ToList();
+            return View(results);
         }
 
         public IActionResult Privacy()
@@ -42,6 +81,11 @@ namespace Proyecto_ProgramacionWeb_1131119.Controllers
         }
 
         public IActionResult Registro()
+        {
+            return View();
+        }
+
+        public IActionResult RegistroPersonal()
         {
             return View();
         }
