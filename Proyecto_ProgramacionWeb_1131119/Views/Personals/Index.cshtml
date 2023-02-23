@@ -1,0 +1,25 @@
+﻿@model List<dynamic> // O el tipo de objeto personalizado que estés utilizando
+
+<h1>Lista de personales</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Salario</th>
+            <th>Fecha de ingreso</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Apellido</td>
+                <td>@item.Salario</td>
+                <td>@item.Fecha_Ingreso</td>
+            </tr>
+        }
+    </tbody>
+</table>

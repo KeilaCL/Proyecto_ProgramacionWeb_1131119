@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Proyecto_ProgramacionWeb_1131119.Models
 {

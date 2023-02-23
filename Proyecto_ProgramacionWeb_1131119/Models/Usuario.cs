@@ -7,7 +7,7 @@ namespace Proyecto_ProgramacionWeb_1131119.Models
         [Key]
         public int IdUsuario { get; set; }
         public int IdPersona { get; set; }
-        public string NombreU { get; set; }
+        public string NombreUsuario { get; set; }
         public string Contraseña { get; set; }
 
     }
