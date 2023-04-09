@@ -1,27 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Proyecto_ProgramacionWeb_1131119.Models;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Proyecto_ProgramacionWeb_1131119.Models;
 
 namespace Proyecto_ProgramacionWeb_1131119.Controllers
 {
-    public class Usuarios1Controller : Controller
+    public class PersonasController : Controller
     {
         private readonly dbHospital _context;
 
-        public Usuarios1Controller(dbHospital context)
+        public PersonasController(dbHospital context)
         {
             _context = context;
         }
 
-        // GET: Usuarios1
+        // GET: Personas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Usuario.ToListAsync());
+            return View(await _context.Persona.ToListAsync());
         }
 
-        // GET: Usuarios1/Details/5
+        // GET: Personas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -29,39 +32,39 @@ namespace Proyecto_ProgramacionWeb_1131119.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuario
-                .FirstOrDefaultAsync(m => m.IdUsuario == id);
-            if (usuario == null)
+            var persona = await _context.Persona
+                .FirstOrDefaultAsync(m => m.IdPersona == id);
+            if (persona == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(persona);
         }
 
-        // GET: Usuarios1/Create
+        // GET: Personas/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Usuarios1/Create
+        // POST: Personas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUsuario,IdPersona,NombreUsuario,Contraseña")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("IdPersona,DPI,Nombre,Apellido,FechaNacimiento,Telefono,Correo,Direccion,Sexo")] Persona persona)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(usuario);
+                _context.Add(persona);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return View(persona);
         }
 
-        // GET: Usuarios1/Edit/5
+        // GET: Personas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -69,22 +72,22 @@ namespace Proyecto_ProgramacionWeb_1131119.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuario.FindAsync(id);
-            if (usuario == null)
+            var persona = await _context.Persona.FindAsync(id);
+            if (persona == null)
             {
                 return NotFound();
             }
-            return View(usuario);
+            return View(persona);
         }
 
-        // POST: Usuarios1/Edit/5
+        // POST: Personas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,IdPersona,NombreUsuario,Contraseña")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPersona,DPI,Nombre,Apellido,FechaNacimiento,Telefono,Correo,Direccion,Sexo")] Persona persona)
         {
-            if (id != usuario.IdUsuario)
+            if (id != persona.IdPersona)
             {
                 return NotFound();
             }
@@ -93,12 +96,12 @@ namespace Proyecto_ProgramacionWeb_1131119.Controllers
             {
                 try
                 {
-                    _context.Update(usuario);
+                    _context.Update(persona);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UsuarioExists(usuario.IdUsuario))
+                    if (!PersonaExists(persona.IdPersona))
                     {
                         return NotFound();
                     }
@@ -109,10 +112,10 @@ namespace Proyecto_ProgramacionWeb_1131119.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return View(persona);
         }
 
-        // GET: Usuarios1/Delete/5
+        // GET: Personas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -120,30 +123,30 @@ namespace Proyecto_ProgramacionWeb_1131119.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuario
-                .FirstOrDefaultAsync(m => m.IdUsuario == id);
-            if (usuario == null)
+            var persona = await _context.Persona
+                .FirstOrDefaultAsync(m => m.IdPersona == id);
+            if (persona == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(persona);
         }
 
-        // POST: Usuarios1/Delete/5
+        // POST: Personas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var usuario = await _context.Usuario.FindAsync(id);
-            _context.Usuario.Remove(usuario);
+            var persona = await _context.Persona.FindAsync(id);
+            _context.Persona.Remove(persona);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UsuarioExists(int id)
+        private bool PersonaExists(int id)
         {
-            return _context.Usuario.Any(e => e.IdUsuario == id);
+            return _context.Persona.Any(e => e.IdPersona == id);
         }
     }
 }

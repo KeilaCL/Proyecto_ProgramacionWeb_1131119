@@ -1,0 +1,322 @@
+﻿@model Proyecto_ProgramacionWeb_1131119.Models.Persona
+@{
+    ViewData["Title"] = "VerPersona";
+}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <title>Material Design for Bootstrap</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="~/css/bootstrap-login-form.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+
+    <body>
+    <section class="section">
+
+        <div class="row">
+
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                        <img width="50%" src="https://thumbs.dreamstime.com/b/icono-ejecutivo-joven-del-perfil-de-la-mujer-81933191.jpg" alt="Profile" class="rounded-circle">
+                        <br>
+                        <h4>@Model.Nombre</h4>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Ficha Médica</h2>
+                        <div>
+
+                            <form class="row g-3">
+                                <div class="col-md-12">
+                                    <label for="inputNombre" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="inputNombre" value="@Model.Nombre @Model.Apellido" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDPI" class="form-label">DPI</label>
+                                    <input type="number" class="form-control" id="inputDPI" value="@Model.DPI" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputFechaNac" class="form-label">Fecha de Nacimiento</label>
+                                    <input type="date" class="form-control" id="inputFechaNac" value="@Model.FechaNacimiento.ToString("yyyy-MM-dd")" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputTel" class="form-label">Teléfono</label>
+                                    <input type="number" class="form-control" id="inputTel" value="@Model.Telefono" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputEmail" class="form-label">Correo</label>
+                                    <input type="email" class="form-control" id="inputEmail" value="@Model.Correo" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset class="row mb-3">
+                                        <legend class="col-form-label col-sm-3 pt-0">Sexo</legend>
+                                        <div class="col-sm-10">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" >
+                                                <label class="form-check-label" for="gridRadios1">
+                                                    Femenino
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                                <label class="form-check-label" for="gridRadios2">
+                                                    Masculino
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputAddress5" class="form-label">Dirección</label>
+                                    <input type="text" class="form-control" id="inputAddres5s" value="@Model.Direccion" readonly>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputCity" class="form-label">Peso</label>
+                                    <input type="number" class="form-control" id="inputCity" value="" readonly>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputCity" class="form-label" >Estatura</label>
+                                    <input type="number" class="form-control" id="inputCity" readonly>
+                                </div>
+                            </form><!-- End Multi Columns Form -->
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Evaluaciones</h5>
+                        <!-- Default Accordion -->
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Antecedentes Psiquiátricos
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+
+                                        <form class="row g-3">
+                                            <div class="col-md-12">
+                                                <fieldset class="row">
+                                                    <legend class="col-form-label col-sm-4 pt-0">¿Antecedentes de enfermedades psiquiátricas?</legend>
+                                                    <div class="col-sm-2">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="RadioeSI" id="RadioeSI" value="SI">
+                                                            <label class="form-check-label" for="RadioeSI">
+                                                                Si
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="RadioeNO" id="RadioeNO" value="NO">
+                                                            <label class="form-check-label" for="RadioeNO">
+                                                                No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <legend class="col-form-label col-sm-4 pt-0">¿Actualmente se encuentra bajo tratamiento psiquiátrico?</legend>
+                                                    <div class="col-sm-2">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="RadiotSI" id="RadiotSI" value="option1">
+                                                            <label class="form-check-label" for="RadiotSI">
+                                                                Si
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="RadiotNO" id="RadiotNO" value="option2">
+                                                            <label class="form-check-label" for="RadiotNO">
+                                                                No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset class="row g-3">
+                                                    <legend class="col-form-label col-sm-4 pt-0">Indique cuáles</legend>
+                                                    <div class="col-sm-2">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                                            <label class="form-check-label" for="gridCheck1">
+                                                                Psicoterapia
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="gridCheck2">
+                                                            <label class="form-check-label" for="gridCheck2">
+                                                                Psicofarmacos
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="gridCheck2">
+                                                            <label class="form-check-label" for="gridCheck2">
+                                                                Internaciones psiquiátricas
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </form>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Tratamiento Actual
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <form action="row g-3">
+                                            <div class="col-md-9">
+                                                <label for="inputMedicacion" class="form-label">Medicación</label>
+                                                <div class="form-floating">
+                                                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;" readonly></textarea>
+                                                    <label for="floatingTextarea"></label>
+                                                </div>
+                                                <label for="inputDiagnostico" class="form-label">Diagnóstico</label>
+                                                <div class="form-floating">
+                                                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;" readonly></textarea>
+                                                    <label for="floatingTextarea"></label>
+                                                </div>
+                                                <label for="inputEvolucion" class="form-label">Evolución</label>
+                                                <div class="form-floating">
+                                                    <textarea class="form-control" placeholder="Address" id="inputEvolucion" style="height: 100px;" readonly></textarea>
+                                                    <label for="floatingTextarea"></label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <label for="inputCity" class="form-label">Médico tratante</label>
+                                                    <input type="number" class="form-control" id="inputCity">
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <label for="inputCity" class="form-label">Teléfono Médico</label>
+                                                    <input type="number" class="form-control" id="inputCity">
+                                                </div>
+                                            </div>
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Última vez que realizó estudios o análisis
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+
+                                        <form action="row g-3">
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <label for="inputCity" class="form-label">Fecha</label>
+                                                    <input type="date" class="form-control" id="inputCity">
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <label for="inputCity" class="form-label">Razón</label>
+                                                    <input type="text" class="form-control" id="inputCity">
+                                                </div>
+                                                <legend class="col-form-label col-sm-4 pt-0">¿Obtuvo resultados normales?</legend>
+                                                <div class="col-sm-2">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="RadiorSI" id="RadiorSI" value="option1">
+                                                        <label class="form-check-label" for="RadiorSI">
+                                                            Si
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="RadiorNO" id="RadiorNO" value="option2" checked>
+                                                        <label class="form-check-label" for="RadiorNO">
+                                                            No
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <legend class="col-form-label col-sm-4 pt-0">¿Padece enfermedades hereditarias?</legend>
+                                                <div class="col-sm-2">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="RadiohSI" id="RadiohSI" value="option1">
+                                                        <label class="form-check-label" for="RadiohSI">
+                                                            Si
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="RadiohNO" id="RadiohNO" value="option2" checked>
+                                                        <label class="form-check-label" for="RadiohNO">
+                                                            No
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <legend class="col-form-label col-sm-4 pt-0">¿Ha recibido transfusiones de sangre?</legend>
+                                                <div class="col-sm-2">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="RadiosSI" id="RadiosSI" value="option1">
+                                                        <label class="form-check-label" for="RadiosSI">
+                                                            Si
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="RadiosNO" id="RadiosNO" value="option2" checked>
+                                                        <label class="form-check-label" for="RadiosNO">
+                                                            No
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <legend class="col-form-label col-sm-4 pt-0">¿Tiene dificultades en la visión o en la audición?</legend>
+                                                <div class="col-sm-2">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="RadiovSI" id="RadiovSI" value="option1">
+                                                        <label class="form-check-label" for="RadiovSI">
+                                                            Si
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="RadiovNO" id="RadiovNO" value="option2" checked>
+                                                        <label class="form-check-label" for="RadiovNO">
+                                                            No
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End Default Accordion Example -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </body>

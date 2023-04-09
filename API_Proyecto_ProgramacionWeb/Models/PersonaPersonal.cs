@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Proyecto_ProgramacionWeb_1131119.Models
+﻿namespace API_Proyecto_ProgramacionWeb.Models
 {
     public class PersonaPersonal
     {

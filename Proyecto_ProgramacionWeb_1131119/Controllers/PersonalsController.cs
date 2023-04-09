@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Proyecto_ProgramacionWeb_1131119.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Proyecto_ProgramacionWeb_1131119.Models;
 
 namespace Proyecto_ProgramacionWeb_1131119.Controllers
 {
@@ -19,6 +17,7 @@ namespace Proyecto_ProgramacionWeb_1131119.Controllers
         }
 
         // GET: Personals
+
         public async Task<IActionResult> Index()
         {
             var query = from persona in _context.Persona

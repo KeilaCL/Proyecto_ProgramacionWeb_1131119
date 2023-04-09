@@ -1,9 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using API_Proyecto_ProgramacionWeb.Models;
 
-namespace Proyecto_ProgramacionWeb_1131119.Models
+namespace API_Proyecto_ProgramacionWeb.Models
 {
     public class dbHospital : DbContext
     {
+        public dbHospital()
+        { }
         public dbHospital(DbContextOptions<dbHospital> opciones) : base(opciones) { }
 
         public DbSet<Usuario> Usuario { get; set; }

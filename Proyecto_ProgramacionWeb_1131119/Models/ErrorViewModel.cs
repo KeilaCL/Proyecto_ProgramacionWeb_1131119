@@ -1,5 +1,3 @@
-using System;
-
 namespace Proyecto_ProgramacionWeb_1131119.Models
 {
     public class ErrorViewModel

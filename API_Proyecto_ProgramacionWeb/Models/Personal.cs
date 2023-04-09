@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Proyecto_ProgramacionWeb_1131119.Models
+namespace API_Proyecto_ProgramacionWeb.Models
 {
     public class Personal
     {
@@ -10,6 +9,5 @@ namespace Proyecto_ProgramacionWeb_1131119.Models
         public int IdPersona { get; set; }
         public DateTime Fecha_Ingreso { get; set; }
         public decimal Salario { get; set; }
-
     }
 }
